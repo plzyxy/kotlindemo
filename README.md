@@ -1,5 +1,5 @@
 # teyork_kottlin
-teayork==>kotlin
+teayork==>kotlin  这是来练手的项目 重构（祖传代码）的准备T_T  项目中很多不成熟的地方在后续会慢慢优化  暂时参考下还是可以的
 # android 组件化 项目
 ####预览效果
 
