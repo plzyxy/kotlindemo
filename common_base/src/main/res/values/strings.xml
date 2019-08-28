@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">teayork</string>
+    <string name="base_string">teayork</string>
+    <string name="pagelayout_empty">暂无新数据</string>
+    <string name="pagelayout_error">网络开小差咯...</string>
+
+
+
+    <string name="listview_header_hint_normal">下拉刷新...</string>
+    <string name="listview_header_hint_release">释放刷新...</string>
+    <string name="listview_loading">努力加载中...</string>
+    <string name="nomore_loading">没有更多内容了</string>
+    <string name="refreshing">正在刷新...</string>
+    <string name="refresh_done">刷新完成...</string>
+    <string name="listview_header_last_time">上次更新时间：</string>
+
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+
+
+
+
+    <string name="theme_default">默认</string>
+    <string name="theme_yima">姨妈红</string>
+    <string name="theme_kuan">酷安绿</string>
+    <string name="theme_bili">哔哩粉</string>
+    <string name="theme_yidi">颐堤蓝</string>
+    <string name="theme_yiteng">伊藤橙</string>
+    <string name="theme_jilao">基佬紫</string>
+    <string name="theme_anluolan">暗罗兰</string>
+    <string name="theme_xinghong">猩红</string>
+    <string name="theme_shuiya">水鸭青</string>
+    <string name="theme_zhihu">知乎蓝</string>
+    <string name="theme_gutong">古铜棕</string>
+    <string name="theme_didiao">低调灰</string>
+    <string name="theme_gaoduan">高端黑</string>
+    <string name="theme_aping">A屏黑</string>
+    <string name="theme_liangbai">亮白</string>
+</resources>

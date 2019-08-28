@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.teayork.module_main.widget.StickyNavLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/id_stickynavlayout_topview"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="#4400ff00" >
+
+        <com.teayork.common_base.widget.view.SWImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/myphoto_bg"
+            >
+
+
+
+        </com.teayork.common_base.widget.view.SWImageView>
+
+
+        <com.teayork.common_base.widget.view.SWImageView
+            android:id="@+id/myphoto"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            app:borderColor="@color/f6f6f6"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_centerHorizontal="true"
+            app:borderWidth="0.5dp"
+            app:stype="circle" />
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_below="@+id/myphoto"
+            android:text="划水🐟"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <com.teayork.module_main.widget.SimpleViewPagerIndicator
+        android:id="@+id/id_stickynavlayout_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffffff" >
+    </com.teayork.module_main.widget.SimpleViewPagerIndicator>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/id_stickynavlayout_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f6f6f6" >
+    </android.support.v4.view.ViewPager>
+
+
+
+
+
+
+
+</com.teayork.module_main.widget.StickyNavLayout>

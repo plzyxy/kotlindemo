@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardElevation="1dp"
+    app:cardCornerRadius="6dp">
+
+    <LinearLayout
+        android:id="@+id/ll_adapter_android"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/greyTxt"
+                android:id="@+id/tv_adapter_android_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 />
+
+            <magicasakura.widgets.TintTextView
+                android:id="@+id/tv_adapter_android_chapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/theme_color_primary"
+                android:textSize="@dimen/sp_14" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/normalTxt"
+                android:id="@+id/tv_adapter_android_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="6dp"
+                android:layout_toLeftOf="@+id/iv_adapter_android_pic"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="3" />
+
+            <com.teayork.common_base.widget.view.SWImageView
+                android:id="@+id/iv_adapter_android_pic"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:src="@mipmap/bg_default"
+                app:stype="round" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp">
+
+            <LinearLayout
+                android:layout_centerVertical="true"
+                android:id="@+id/ll_adapter_android_tags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <magicasakura.widgets.TintImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/iv_adapter_android_collected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dp_16"
+                android:layout_toLeftOf="@+id/tv_adapter_android_time"
+                android:src="@mipmap/icon_collect_normal"
+                android:visibility="gone"
+                app:imageTint="@color/theme_color_primary" />
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:id="@+id/iv_adapter_android_collect_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_toLeftOf="@+id/tv_adapter_android_time"
+                android:src="@mipmap/icon_collect_normal" />
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:id="@+id/tv_adapter_android_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                style="@style/greyTxt" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

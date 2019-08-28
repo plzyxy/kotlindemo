@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.teayork.module_main">
+
+    <application>
+        <activity android:name="com.teayork.module_main.ui.activity.WelActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.teayork.module_main.ui.activity.MainActivity"/>
+        <activity android:name=".ui.activity.PostCommunityActivity"></activity>
+        <activity android:name=".ui.activity.SearchActivity"></activity>
+        <activity android:name=".ui.activity.SearchResultActivity"></activity>
+        <activity android:name=".ui.activity.TestActivity"></activity>
+        <activity android:name=".ui.activity.SearchAllActivity" android:exported="true"></activity>
+    </application>
+
+</manifest>

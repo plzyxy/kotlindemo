@@ -1,0 +1,161 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion rootProject.ext.versions.compileSdkVersion
+    buildToolsVersion rootProject.ext.versions.buildToolsVersion
+
+    //指定jdk版本
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.versions.minSdkVersion
+        targetSdkVersion rootProject.ext.versions.targetSdkVersion
+        versionCode rootProject.ext.versions.versionCode
+        versionName rootProject.ext.versions.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //MultiDex分包方法
+        multiDexEnabled true
+
+        //Arouter路由配置
+//        kapt {
+//            arguments {
+//                arg("AROUTER_MODULE_NAME", project.getName())
+//            }
+//            generateStubs = true
+//        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath = true
+            }
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //防止编译的时候oom、GC
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+
+}
+
+dependencies {
+    // 在项目中的libs中的所有的.jar结尾的文件，都是依赖
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //把implementation 用api代替,它是对外部公开的, 所有其他的module就不需要添加该依赖
+    api rootProject.ext.dependencies["appcompat_v7"]
+    api rootProject.ext.dependencies["constraint_layout"]
+    api rootProject.ext.dependencies["cardview-v7"]
+    api rootProject.ext.dependencies["recyclerview-v7"]
+    api rootProject.ext.dependencies["support-v4"]
+    api rootProject.ext.dependencies["design"]
+    api rootProject.ext.dependencies["support_annotations"]
+
+    //MultiDex分包方法
+    api rootProject.ext.dependencies["multidex"]
+
+    //黄油刀
+    annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
+    api rootProject.ext.dependencies["butterknife"]
+
+    //Arouter路由
+//    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+    api rootProject.ext.dependencies["arouter_api"]
+    api rootProject.ext.dependencies["arouter_annotation"]
+//    kapt rootProject.ext.dependencies["arouter_annotation"]
+
+    //eventbus 发布/订阅事件总线
+    api rootProject.ext.dependencies["eventbus"]
+
+    //网络
+    api rootProject.ext.dependencies["novate"]
+
+    //日志
+    api rootProject.ext.dependencies["logger"]
+
+    //fastJson
+    api rootProject.ext.dependencies["fastjson"]
+
+    //沉浸栏
+    api rootProject.ext.dependencies["barlibrary"]
+
+    //权限
+    api rootProject.ext.dependencies["easypermissions"]
+
+    //banner
+    api rootProject.ext.dependencies["banner"]
+
+    //图片加载
+    api rootProject.ext.dependencies["picasso"]
+    api rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["glide-filter"]
+
+
+    //朋友圈用到的
+    api rootProject.ext.dependencies["photopicker"]
+
+    api rootProject.ext.dependencies["baseadapter"]
+
+
+
+    // greenDao
+    api rootProject.ext.dependencies["greenDao"]
+
+
+
+
+
+
+    // "PersistentCookieJar"
+    api rootProject.ext.dependencies["PersistentCookieJar"]
+
+
+    //lombok
+    api rootProject.ext.dependencies["lombok"]
+    api rootProject.ext.dependencies["lombokJavax"]
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //swipelayout
+    api rootProject.ext.dependencies["swipelayout"]
+
+//    rxjava
+    api rootProject.ext.dependencies["rxjava"]
+    api rootProject.ext.dependencies["adapter-rxjava"]
+    api rootProject.ext.dependencies["rxandroid"]
+    api rootProject.ext.dependencies["rxrelay"]
+
+
+    api('com.github.afollestad.material-dialogs:core:0.8.5.8@aar') {
+        transitive = true
+        exclude group: 'com.github.afollestad.material-dialogs.core', module: 'core'
+    }
+    api rootProject.ext.dependencies["pickerimg_zhihu"]
+
+
+//    agentweb
+
+    api rootProject.ext.dependencies["agentweb"]
+
+//    rxrelay
+
+
+    //GreenDAO
+//    api rootProject.ext.dependencies["greenDao"]
+
+}
+repositories {
+    mavenCentral()
+}

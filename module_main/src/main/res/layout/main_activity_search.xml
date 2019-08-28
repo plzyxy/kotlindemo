@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+
+    <magicasakura.widgets.TintLinearLayout
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_10"
+        android:background="@color/theme_color_primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="@dimen/dp_10"
+            android:gravity="center_vertical"
+            android:background="@drawable/main_shape_round_fff_5"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/iv_search_back"
+                android:src="@mipmap/ic_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <magicasakura.widgets.TintEditText
+                android:id="@+id/et_search"
+                android:textCursorDrawable="@color/grey"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:background="@null"
+                android:layout_weight="1"
+                style="@style/normalTxt"
+                android:hint="输入搜索关键字"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+    </magicasakura.widgets.TintLinearLayout>
+
+    <RelativeLayout
+        android:padding="@dimen/dp_12"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <magicasakura.widgets.TintView
+            android:layout_alignBottom="@+id/tv_hot_search_title"
+            android:layout_alignTop="@+id/tv_hot_search_title"
+            android:id="@+id/view_small_line"
+            android:background="@drawable/shape_line_small"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/tv_hot_search_title"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_toRightOf="@+id/view_small_line"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="热门搜索"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <!--<EditText-->
+        <!--android:id="@+id/et_search2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="hahah"-->
+        <!--android:imeOptions="actionSearch"-->
+        <!--android:singleLine="true"-->
+        <!--android:inputType="text"-->
+        />
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:padding="@dimen/dp_10"
+        android:id="@+id/flex"
+        app:flexWrap="wrap"
+        app:alignContent="stretch"
+        app:alignItems="stretch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_search_history"
+        android:padding="@dimen/dp_12"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <magicasakura.widgets.TintView
+            android:layout_alignBottom="@+id/tv_hot_search_history_title"
+            android:layout_alignTop="@+id/tv_hot_search_history_title"
+            android:id="@+id/view_small_line_history"
+            android:background="@drawable/shape_line_small"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/tv_hot_search_history_title"
+            android:layout_marginLeft="@dimen/dp_8"
+            android:layout_toRightOf="@+id/view_small_line_history"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="历史搜索"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_search_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
