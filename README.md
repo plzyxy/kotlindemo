@@ -1,6 +1,11 @@
 # teyork_kottlin
 teayork==>kotlin
 # android 组件化 项目
+####预览效果
+
+<img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG18.jpeg" alt="Sample"  width="140" height="280"><img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG14.jpeg" alt="Sample"  width="140" height="280"><img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG16.jpeg" alt="Sample"  width="140" height="280"><img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG17.jpeg" alt="Sample"  width="140" height="280"><img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG15.jpeg" alt="Sample"  width="140" height="280">
+
+
 
 > 项目采用  java+kotlin   mvp开发 
 
@@ -29,9 +34,7 @@ teayork==>kotlin
 
 >  其他 自己看项目配置吧T_T
 
-####预览效果
 
-<img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG18.jpeg" alt="Sample"  width="140" height="280"><img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG14.jpeg" alt="Sample"  width="140" height="280"><img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG16.jpeg" alt="Sample"  width="140" height="280"><img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG17.jpeg" alt="Sample"  width="140" height="280"><img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG15.jpeg" alt="Sample"  width="140" height="280">
 
 
 
