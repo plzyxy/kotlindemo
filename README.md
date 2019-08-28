@@ -31,11 +31,7 @@ teayork==>kotlin
 
 ####预览效果
 
-<img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG18.jpeg" alt="Sample"  width="140" height="280">
-<img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG14.jpeg" alt="Sample"  width="140" height="280">
-<img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG16.jpeg" alt="Sample"  width="140" height="280">
-<img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG17.jpeg" alt="Sample"  width="140" height="280">
-<img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG15.jpeg" alt="Sample"  width="140" height="280">
+<img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG18.jpeg" alt="Sample"  width="140" height="280"><img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG14.jpeg" alt="Sample"  width="140" height="280"><img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG16.jpeg" alt="Sample"  width="140" height="280"><img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG17.jpeg" alt="Sample"  width="140" height="280"><img src="https://github.com/plzyxy/kotlindemo/blob/master/githubimage/WechatIMG15.jpeg" alt="Sample"  width="140" height="280">
 
 
 
