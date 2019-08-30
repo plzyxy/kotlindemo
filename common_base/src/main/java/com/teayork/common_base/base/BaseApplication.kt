@@ -28,11 +28,39 @@ import com.teayork.common_base.widget.toasty.Toasty
 import magicasakura.utils.ThemeUtils
 import kotlin.properties.Delegates
 
+
 /**
  * author：pengzhixian on 2019-07-17 16:35
  * e-mail：759560522@qq.com
  */
-open class BaseApplication  : Application(),ThemeUtils.switchColor {
+open class BaseApplication : Application(), ThemeUtils.switchColor {
+
+
+    private val MODULESLIST = arrayOf("com.teayork.module_main.app.Main_App")
+
+
+    private fun moduleApplicationInit(baseApplication: BaseApplication) {
+        for (moduleImpl in MODULESLIST) {
+            try {
+                val clazz = Class.forName(moduleImpl)
+                val obj = clazz.newInstance()
+                if (obj is IComponentApplication) {
+                    obj.init(baseApplication)
+                }
+            } catch (e: ClassNotFoundException) {
+                e.printStackTrace()
+            } catch (e: IllegalAccessException) {
+                e.printStackTrace()
+            } catch (e: InstantiationException) {
+                e.printStackTrace()
+            }
+
+        }
+
+
+    }
+
+
     override fun replaceColorById(context: Context, @ColorRes colorId: Int): Int {
         if (ThemeHelper.isDefaultTheme(context)) {
             return context.resources.getColor(colorId)
@@ -65,18 +93,21 @@ open class BaseApplication  : Application(),ThemeUtils.switchColor {
         var instance: BaseApplication by Delegates.notNull()
 
     }
+
     override fun onCreate() {
         super.onCreate()
-        instance=this;
+        instance = this;
         activityManage = ActivityManage()
         FileUtils.initSd(AppUtils.getAppName(this)!!)
         initARouter()
         ToastUtils.init(this)
-        SPUtils.init(this,FileConfig.SPFILENAME)
+        SPUtils.init(this, FileConfig.SPFILENAME)
         initHttp()
         initCommon()
+        moduleApplicationInit(this)
 
     }
+
     /**
      * 初始化日志打印框架
      */
@@ -114,7 +145,6 @@ open class BaseApplication  : Application(),ThemeUtils.switchColor {
         super.onTerminate()
         exitApp()
     }
-
 
 
     private fun initHttp() {
@@ -158,7 +188,11 @@ open class BaseApplication  : Application(),ThemeUtils.switchColor {
     private fun getThemeColorId(context: Context, colorId: Int, theme: String): Int {
         when (colorId) {
             R.color.theme_color_primary -> return context.resources.getIdentifier(theme, "color", packageName)
-            R.color.theme_color_primary_dark -> return context.resources.getIdentifier(theme + "_dark", "color", packageName)
+            R.color.theme_color_primary_dark -> return context.resources.getIdentifier(
+                theme + "_dark",
+                "color",
+                packageName
+            )
             R.color.colorAccent -> return context.resources.getIdentifier(theme + "_accent", "color", packageName)
         }
         return colorId
