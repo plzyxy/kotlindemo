@@ -36,7 +36,7 @@ class MainActivity : BaseActivity() {
 
         changeFragment(HomeFragment::class.java.simpleName)
         rg_main.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
-            Log.e("aaa", "切换")
+//            Log.e("aaa", "切换")
             when (checkedId) {
                 R.id.rb_home -> {
 

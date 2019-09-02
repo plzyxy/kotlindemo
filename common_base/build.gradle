@@ -66,6 +66,7 @@ dependencies {
 
     //MultiDex分包方法
     api rootProject.ext.dependencies["multidex"]
+    api rootProject.ext.dependencies["multidex-instrumentation"]
 
     //黄油刀
     annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]

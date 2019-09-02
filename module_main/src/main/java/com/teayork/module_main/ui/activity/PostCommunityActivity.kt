@@ -9,18 +9,21 @@ import android.widget.CompoundButton
 import cn.bingoogolapple.photopicker.activity.BGAPhotoPickerActivity
 import cn.bingoogolapple.photopicker.activity.BGAPhotoPickerPreviewActivity
 import cn.bingoogolapple.photopicker.widget.BGASortableNinePhotoLayout
+import com.teayork.common_base.event.EventMap
 import com.teayork.common_base.mvp.view.MvpActivity
 import com.teayork.common_base.utils.DateUtils
 import com.teayork.common_base.utils.LogUtils
 import com.teayork.common_base.utils.toast.ToastUtils
 import com.teayork.module_main.R
 import com.teayork.module_main.app.Main_App
+import com.teayork.module_main.busevent.BusEvent
 import com.teayork.module_main.dao.CommunityBeanDao
 import com.teayork.module_main.dao.DaoSession
 import com.teayork.module_main.daobean.CommunityBean
 import com.teayork.module_main.mvp.contact.PostCommunityContact
 import com.teayork.module_main.mvp.presenter.PostCommunityPresenter
 import kotlinx.android.synthetic.main.main_activity_community.*
+import org.greenrobot.eventbus.EventBus
 import pub.devrel.easypermissions.EasyPermissions
 import java.io.File
 
@@ -157,11 +160,13 @@ class PostCommunityActivity : MvpActivity<PostCommunityPresenter>(), PostCommuni
 
         tv_moment_add_publish.setOnClickListener {
 
-            LogUtils.e("看看数据",snpl_moment_add_photos.data.toString())
+//            LogUtils.e("看看数据",snpl_moment_add_photos.data.toString())
 
            var communityBean: CommunityBean= CommunityBean(null,null,"小贤一号","我今天看见了。点点点。。。。。啊哈哈哈",DateUtils.getCurrentDateTime("YYYY-MM-DD-HH-MM-SS"),snpl_moment_add_photos.data)
 
             daoSession!!.insert(communityBean)
+            EventBus.getDefault().post(BusEvent.PostDynamicEvent(communityBean))
+            this.finish()
 
 
 

@@ -7,10 +7,12 @@ import android.view.View
 import cn.bingoogolapple.photopicker.widget.BGANinePhotoLayout
 import com.teayork.common_base.base.BaseMvpFragment
 import com.teayork.common_base.base.recycleview.XRecyclerView
+import com.teayork.common_base.event.EventMap
 import com.teayork.common_base.utils.LogUtils
 import com.teayork.module_main.R
 import com.teayork.module_main.adapter.CommunityFragmentAdpter
 import com.teayork.module_main.app.Main_App
+import com.teayork.module_main.busevent.BusEvent
 import com.teayork.module_main.dao.CommunityBeanDao
 import com.teayork.module_main.daobean.CommunityBean
 import com.teayork.module_main.mvp.contact.center.CommunityContact
@@ -18,8 +20,11 @@ import com.teayork.module_main.mvp.model.Moment
 import com.teayork.module_main.mvp.presenter.center.CommunityPresenter
 import com.teayork.module_main.ui.activity.PostCommunityActivity
 import kotlinx.android.synthetic.main.main_fragment_center_community.*
+import org.greenrobot.eventbus.EventBus
 import java.util.*
 import kotlin.collections.ArrayList
+
+
 
 /**
  * author：pengzhixian on 2019-08-15 11:51
@@ -27,12 +32,31 @@ import kotlin.collections.ArrayList
  */
 class CommunityFragment : BaseMvpFragment<CommunityPresenter>(), CommunityContact.IView {
 
-    private var mPage: Int = 0
+    private var mPage: Int = 1
     private lateinit var mAdapter: CommunityFragmentAdpter
 
 
     override fun getLayoutId(): Int {
         return R.layout.main_fragment_center_community
+
+    }
+
+    override fun regEvent()=true
+
+    override fun onEventBus(event: EventMap.BaseEvent) {
+
+      if(  event is BusEvent.PostDynamicEvent){
+        val el=   event as BusEvent.PostDynamicEvent
+//          Moment(el.communityBean.)
+          var mm=Moment()
+          mm.content=el.communityBean.content
+          mm.photos= el.communityBean.photos as java.util.ArrayList<String>?
+
+          mAdapter.insert(0,mm)
+          mAdapter.notifyItemInserted(0)
+//          loadTestData()
+      }
+
 
     }
 
@@ -44,6 +68,10 @@ class CommunityFragment : BaseMvpFragment<CommunityPresenter>(), CommunityContac
         xrc_community.setPullRefreshEnabled(false)
         mAdapter = CommunityFragmentAdpter()
         mAdapter.addAll(moments)
+
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this)
+        }
         xrc_community.adapter = mAdapter
         xrc_community.setLoadingListener(object : XRecyclerView.LoadingListener {
             override fun onLoadMore() {
@@ -68,7 +96,7 @@ class CommunityFragment : BaseMvpFragment<CommunityPresenter>(), CommunityContac
         txt_show_community.setOnClickListener {
 
 
-          loadTestData()
+
 
 
         }
@@ -80,9 +108,12 @@ class CommunityFragment : BaseMvpFragment<CommunityPresenter>(), CommunityContac
         var  daoSession= Main_App.instance().getDaoSession()
         var dao= daoSession.communityBeanDao
         val moments_temp=java.util.ArrayList<Moment>()
-        var list: List<CommunityBean> =dao.loadAll()
+
+//        var list: List<CommunityBean>  = daoSession.queryBuilder(CommunityBeanDao::class.java).offset(mPage * 10).limit(8).list()
+
+        var list: List<CommunityBean> =dao.queryBuilder().where(CommunityBeanDao.Properties.Id.gt(0)).orderDesc().list()
         for ((index,item )in list.withIndex()){
-            LogUtils.e("index-> " ,item.toString())
+//            LogUtils.e("index-> " ,item.toString())
             if(index>8){
                 break
             }
@@ -93,7 +124,7 @@ class CommunityFragment : BaseMvpFragment<CommunityPresenter>(), CommunityContac
         if (refresh_community.isRefreshing) {
             refresh_community.isRefreshing = false
         }
-
+        mAdapter.clear()
         mAdapter.addAll(moments_temp)
         mAdapter.notifyDataSetChanged()
     }
@@ -113,7 +144,7 @@ class CommunityFragment : BaseMvpFragment<CommunityPresenter>(), CommunityContac
 
         var list: List<CommunityBean> =dao.loadAll()
         for ((index,item )in list.withIndex()){
-            LogUtils.e("index-> " ,item.toString())
+//            LogUtils.e("index-> " ,item.toString())
             if(index>8){
                 break
             }

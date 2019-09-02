@@ -79,6 +79,7 @@ object EventMap {
 //    class SelectAppEvent(val bean: AppInfo) : BaseEvent()
     class SearchHistoryDeleteEvent(val position:Int) : BaseEvent()
 
+
     class LoginSetTabEvent() : BaseEvent(){
          var name: String = ""
          var pwd: String = ""

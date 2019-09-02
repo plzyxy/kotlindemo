@@ -40,7 +40,7 @@ import kotlinx.android.synthetic.main.main_fragment_home.*
     }
 
     override fun initData() {
-        LogUtils.e("initData", "initdata??")
+//        LogUtils.e("initData", "initdata??")
 
     }
 
@@ -90,7 +90,7 @@ import kotlinx.android.synthetic.main.main_fragment_home.*
     }
 
     fun initDatas() {
-        LogUtils.e("eee", "initdatas")
+//        LogUtils.e("eee", "initdatas")
         getPresenter().getBannerHttp()
 //         hotBean = arguments?.getSerializable("bean") as HotBean
         mIndex = 1
@@ -226,7 +226,7 @@ import kotlinx.android.synthetic.main.main_fragment_home.*
     }
 
     fun initViews() {
-        LogUtils.e("eee", "initViews")
+//        LogUtils.e("eee", "initViews")
         search_home.setOnClickListener {
             context!!.startActivity(Intent(context, SearchActivity::class.java))
 

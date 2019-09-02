@@ -124,7 +124,7 @@ class AndroidFragment : BaseMvpFragment<AndroidPresenter>(), AndroidContact.IVie
 //        activity?.let { ToastUtils.showSuccess(it, "收藏成功") }
     }
 
-    override fun onEvent(it: EventMap.BaseEvent) {
+    override fun onEventBus(it: EventMap.BaseEvent) {
         when (it) {
             is EventMap.ToUpEvent -> if (isVisible) {
                 xrv_android.smoothScrollToPosition(0)

@@ -11,6 +11,7 @@ import android.widget.TextView
 import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.teayork.common_base.R
+import com.teayork.common_base.event.EventMap
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -117,7 +118,7 @@ abstract class BaseFragment : Fragment() {
      * 子类接受事件 重写该方法
      */
     @Subscribe(threadMode = ThreadMode.MAIN)
-    open fun onEventBus(event: Any) {
+    open fun onEventBus(event: EventMap.BaseEvent) {
     }
 
     /**

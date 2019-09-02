@@ -32,7 +32,6 @@ abstract class BaseMvpFragment<out T : IPresenterContract> : MvpFragment<T>() {
     protected lateinit var mPageLayout: PageLayout
 
 
-
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         TAG = javaClass.simpleName
@@ -49,13 +48,13 @@ abstract class BaseMvpFragment<out T : IPresenterContract> : MvpFragment<T>() {
         return inflater.inflate(getLayoutId(), container, false)
     }
 
-    protected fun initPageLayout(targetView: Any, isShowLoading: Boolean = false){
+    protected fun initPageLayout(targetView: Any, isShowLoading: Boolean = false) {
         mPageLayout = PageLayout.Builder(context!!)
-                .initPage(targetView)
-                .setDefaultEmptyText(resources.getString(R.string.pagelayout_empty))
-                .setDefaultErrorText(resources.getString(R.string.pagelayout_error))
-                .setDefaultLoadingBlinkText(AppUtils.getAppName(this.context!!)!!)
-                .create()
+            .initPage(targetView)
+            .setDefaultEmptyText(resources.getString(R.string.pagelayout_empty))
+            .setDefaultErrorText(resources.getString(R.string.pagelayout_error))
+            .setDefaultLoadingBlinkText(AppUtils.getAppName(this.context!!)!!)
+            .create()
         if (isShowLoading) mPageLayout.showLoading()
     }
 
@@ -85,9 +84,11 @@ abstract class BaseMvpFragment<out T : IPresenterContract> : MvpFragment<T>() {
         isFirstLoad = false
     }
 
-//    open fun isHasBus(): Boolean {
-//        return false
-//    }
+
+     override fun regEvent(): Boolean {
+        return false
+    }
+
 
 //    protected fun registerEvent() {
 //        if (isHasBus()) {
@@ -96,8 +97,8 @@ abstract class BaseMvpFragment<out T : IPresenterContract> : MvpFragment<T>() {
 //        }
 //    }
 
-    open fun onEvent(event: EventMap.BaseEvent) {
-    }
+//    open fun onEvent(event: EventMap.BaseEvent) {
+//    }
 
     open fun init_(savedInstanceState: Bundle?) {}
 
@@ -108,10 +109,9 @@ abstract class BaseMvpFragment<out T : IPresenterContract> : MvpFragment<T>() {
         disposables.clear()
     }
 
-    companion object{
-        val TITLE="title"
+    companion object {
+        val TITLE = "title"
     }
-
 
 
 }

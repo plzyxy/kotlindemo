@@ -24,7 +24,7 @@ class HomePresenter: RxLifePresenter<HomeContact.IView>(),HomeContact.IPresenter
             }).bindRxLifeEx(RxLife.ON_DESTROY)}
 
     override fun getBannerHttp() {
-        LogUtils.e("eee","getBanner")
+//        LogUtils.e("eee","getBanner")
         HttpClientUtils.Builder.getCommonHttp()
             .getHomeBanner()
             .subscribeOn(Schedulers.io())

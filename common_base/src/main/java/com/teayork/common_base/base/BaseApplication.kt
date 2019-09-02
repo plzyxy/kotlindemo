@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.support.annotation.ColorInt
 import android.support.annotation.ColorRes
+import android.support.multidex.MultiDex
 import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper
 import com.alibaba.android.arouter.launcher.ARouter
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
@@ -58,6 +59,12 @@ open class BaseApplication : Application(), ThemeUtils.switchColor {
         }
 
 
+    }
+
+
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(base)
+        MultiDex.install(this)
     }
 
 

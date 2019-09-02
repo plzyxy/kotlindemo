@@ -43,6 +43,10 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Ba
         data.add(object);
     }
 
+    public void insert(int index,T object){
+        data.add(index,object);
+    }
+
     public void clear() {
         data.clear();
     }

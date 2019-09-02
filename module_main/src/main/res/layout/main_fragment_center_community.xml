@@ -44,6 +44,7 @@
         android:layout_marginRight="90dp"
         android:text="see"
         android:background="@drawable/main_shape_round_f6_5"
+        android:visibility="gone"
         />
 
 

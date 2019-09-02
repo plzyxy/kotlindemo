@@ -26,7 +26,7 @@ ext {
             junitVersion            : "4.12",
             annotationsVersion      : "24.0.0",
 
-            multidexVersion         : "1.0.2",
+            multidexVersion         : "1.0.3",
             butterknifeVersion      : "9.0.0",
             arouterApiVersion       : "1.4.0",
             arouterCompilerVersion  : "1.2.1",
@@ -56,6 +56,7 @@ ext {
 
                     //方法数超过65535解决方法64K MultiDex分包方法
                     "multidex"            : "com.android.support:multidex:${versions["multidexVersion"]}",
+                    "multidex-instrumentation"            : "com.android.support:multidex-instrumentation:${versions["multidexVersion"]}",
 
                     //路由
                     "arouter_api"         : "com.alibaba:arouter-api:${versions["arouterApiVersion"]}",
